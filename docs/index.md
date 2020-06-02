@@ -46,7 +46,7 @@ def read_from_file(file_name):
 ## Running the Pickle Code
 Now that I had functions to pickle and unpickle bills data, I was ready to test out how pickling worked. The main part of my code was just a while loop that allowed the user to keep entering bill information, until they chose to save and quit. Figure 1 shows the code running to test out the pickle module.
 
-![Figure 1](/docs/Figure 1.png "Figure 1")
+![Figure 1](Figure%201.png "Figure 1")
 **Figure 1: Testing the bills program to see that pickling worked**  
 
 The last line just prints the list of bills that was read from the file. The curly braces inside square brackets indicate that the read_from_file function is returning a dictionary inside of a list, showing that pickling allows more complex data to be saved to a file. Figure 2 shows the data inside the binary file.
@@ -57,7 +57,7 @@ The last line just prints the list of bills that was read from the file. The cur
 ## Error Handling Research
 The second part of the assignment was to research error handling, and to demonstrate error handling in a script. I found the website https://www.datacamp.com/community/tutorials/exception-handling-python​ (External Link) to be helpful in explaining the use of the try-except block for error handling. Figure 3 shows a good flow chart from the website that illustrates try-except-else-finally.
 
-![Figure 3](https://github.com/oddlandd/IntroToProg-Python-Mod7/blob/master/docs/Figure%203.png "Figure 3")  
+![Figure 3](Figure%203.png "Figure 3")  
 ***Figure 3: Illustration of try-except block***  
 *Source*: ​https://files.realpython.com/media/try_except_else_finally.a7fac6c36c55.png
 
@@ -114,7 +114,7 @@ while True:
 ## Running the Error Handling Code
 To test out the structured error handling, I ran the code as if the user was making all the worst decisions on what they input. Figure 4 shows the error that comes up if the user enters a file that doesn’t end in .dat.
 
-![Figure 4](https://github.com/oddlandd/IntroToProg-Python-Mod7/blob/master/docs/Figure%204.png "Figure 4")
+![Figure 4](Figure%204.png "Figure 4")
 ***Figure 4: FileNotDATError shown in macOSX Terminal***
 
 I ran it again in the terminal to show other errors that might pop up. Instead of raising the exceptions, I included them in try-except statements, and gave the user a chance to correct their input. Figure 5 shows the code catching a ValueError and a FileNotFoundError, and just asking for new input.
