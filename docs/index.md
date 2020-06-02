@@ -51,7 +51,7 @@ Now that I had functions to pickle and unpickle bills data, I was ready to test 
 
 The last line just prints the list of bills that was read from the file. The curly braces inside square brackets indicate that the read_from_file function is returning a dictionary inside of a list, showing that pickling allows more complex data to be saved to a file. Figure 2 shows the data inside the binary file.
 
-![Figure 2](https://github.com/oddlandd/IntroToProg-Python-Mod7/blob/master/docs/Figure%202.png "Figure 2")
+![Figure 2](Figure%202.png "Figure 2")
 ***Figure 2: List of bills inside binary file***
 
 ## Error Handling Research
