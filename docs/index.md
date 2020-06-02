@@ -10,32 +10,51 @@ The seventh assignment for Foundations of Programming: Python was to read up on 
 I began my research into the first of the two topics - pickling - by watching the Module 7 video and reading the course textbook Python Programming for the Absolute Beginner.
 The pickling discussion in the course video was relatively short, discussing how binary files can be used instead of text files, and introducing that python has a feature called pickling. The book went through a good example of pickling, explaining that pickling is a good way to store complex data like dictionaries and lists. The example creates three lists, pickles them and dumps them to a binary file, then reads the pickled data back from the file. This shows that the lists themselves are stored to the file, rather than strings as we have been working with previously. The book also discusses shelving as a way to store pickled data. Shelving combines a number of lists together and writes them to a file. It seems to me that we can already combine lists or dictionaries by using them as elements of a list, so I didn’t fully understand the functionality of shelving. The book mentions that using a shelf to simulate a dictionary is more memory efficient than using dictionaries, so perhaps it will be useful for me to use in future programs.
 ## Pickle Coding
-My main takeaway from my pickling research, with my current knowledge of python, is that pickling seems most useful to save list or dictionary objects. Pickling them saves the hassle of having to use a for loop to unpack lists and dictionaries to write lines of text to a file, then use a for loop to pack the text back into a list or a dictionary. As an example of pickling, I wrote a script where the user can enter in bills to pay - the bill, the amount, and the date it’s due. These get put in a dictionary with keys “Bill”, “Amount”, and “Due”. Each new input is a new dictionary that
- 
- is added to the list. The code to accomplish this is very similar to what was done in previous assignments. When the user decides to save the list of bills, the list of dictionary rows is pickled and dumped in a .dat file. Listing 1 shows the function write_to_file(), where the list of bills is pickled and saved in the desired binary file name.
-def w​ rite_to_file(​ file_name, list_of_bills): ​""" Pickles data and saves it to file
-:param file_name: (string) of dat file :param list_of_bills: (list) of dictionary rows :return: nothing
-"""
-​open_file = o​ pen(​ file_name, ​"wb")​ pickle.dump(list_of_bills, open_file) open_file.close()
-Listing 1: Code to pickle and save the data
+My main takeaway from my pickling research, with my current knowledge of python, is that pickling seems most useful to save list or dictionary objects. Pickling them saves the hassle of having to use a for loop to unpack lists and dictionaries to write lines of text to a file, then use a for loop to pack the text back into a list or a dictionary. As an example of pickling, I wrote a script where the user can enter in bills to pay - the bill, the amount, and the date it’s due. These get put in a dictionary with keys “Bill”, “Amount”, and “Due”. Each new input is a new dictionary that is added to the list. The code to accomplish this is very similar to what was done in previous assignments. When the user decides to save the list of bills, the list of dictionary rows is pickled and dumped in a .dat file. Listing 1 shows the function write_to_file(), where the list of bills is pickled and saved in the desired binary file name.
+```
+def write_to_file(file_name, list_of_bills):
+    """ Pickles data and saves it to file
+
+    :param file_name: (string) of dat file
+    :param list_of_bills: (list) of dictionary rows
+    :return: nothing
+    """
+    open_file = open(file_name, "wb")
+    pickle.dump(list_of_bills, open_file)
+    open_file.close()
+```    
+**Listing 1: Code to pickle and save the data**  
+
 To verify that the pickled data is saved as a list object with dictionary rows, I added a function call to the end of the code to read the data from the file, unpickle it and print it. Listing 2 shows the read_from_file() function that accomplishes this.
-def r​ ead_from_file(​ file_name): ​""" Unpickles data from file
-:param file_name: (string) of dat file :return: (list) of dictionary rows from file """
-​open_file = o​ pen(​ file_name, ​"rb")​ list_of_bills = pickle.load(open_file) open_file.close()
-​return ​list_of_bills
-Listing 2: Code to unpickle the data
-Running the Pickle Code
+```
+def read_from_file(file_name):
+    """ Unpickles data from file
+
+    :param file_name: (string) of dat file
+    :return: (list) of dictionary rows from file
+    """
+    open_file = open(file_name, "rb")
+    list_of_bills = pickle.load(open_file)
+    open_file.close()
+    return list_of_bills
+```
+**Listing 2: Code to unpickle the data**
+
+## Running the Pickle Code
 Now that I had functions to pickle and unpickle bills data, I was ready to test out how pickling worked. The main part of my code was just a while loop that allowed the user to keep entering bill information, until they chose to save and quit. Figure 1 shows the code running to test out the pickle module.
 
-  Figure 1: Testing the bills program to see that pickling worked
+**Figure 1: Testing the bills program to see that pickling worked**
 The last line just prints the list of bills that was read from the file. The curly braces inside square brackets indicate that the read_from_file function is returning a dictionary inside of a list, showing that pickling allows more complex data to be saved to a file.
 Figure 2 shows the data inside the binary file.
-Figure 2: List of bills inside binary file
+
+**Figure 2: List of bills inside binary file**
+
 ## Error Handling Research
 The second part of the assignment was to research error handling, and to demonstrate error handling in a script. I found the website https://www.datacamp.com/community/tutorials/exception-handling-python​ (External Link) to be helpful in explaining the use of the try-except block for error handling. Figure 3 shows a good flow chart from the website that illustrates try-except-else-finally.
   
-  Figure 3: Illustration of try-except block
-Source: ​https://files.realpython.com/media/try_except_else_finally.a7fac6c36c55.png
+**Figure 3: Illustration of try-except block**  
+*Source*: ​https://files.realpython.com/media/try_except_else_finally.a7fac6c36c55.png
+
 The website also had good information about specific exceptions that you could call out in the
 except block, to catch errors that you know have a possibility of arising.
 The course Module 7 had good information about raising custom errors and creating custom exception classes. Even if something isn’t an error in python, it could lead to an error down the road. By checking with an if statement, you can raise an error if particular code doesn’t match your requirements. With custom exception classes, you can add new errors for your code to raise, with custom error messages that you specify.
