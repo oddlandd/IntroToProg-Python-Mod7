@@ -46,7 +46,7 @@ def read_from_file(file_name):
 ## Running the Pickle Code
 Now that I had functions to pickle and unpickle bills data, I was ready to test out how pickling worked. The main part of my code was just a while loop that allowed the user to keep entering bill information, until they chose to save and quit. Figure 1 shows the code running to test out the pickle module.
 
-![Figure 1](https://github.com/oddlandd/IntroToProg-Python-Mod7/blob/master/docs/Figure%201.png "Figure 1")
+![Figure 1](https://oddlandd.github.io/IntroToProg-Python-Mod7/blob/master/docs/Figure%201.png "Figure 1")
 **Figure 1: Testing the bills program to see that pickling worked**  
 
 The last line just prints the list of bills that was read from the file. The curly braces inside square brackets indicate that the read_from_file function is returning a dictionary inside of a list, showing that pickling allows more complex data to be saved to a file. Figure 2 shows the data inside the binary file.
