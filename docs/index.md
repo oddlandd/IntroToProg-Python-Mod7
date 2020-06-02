@@ -119,7 +119,7 @@ To test out the structured error handling, I ran the code as if the user was mak
 
 I ran it again in the terminal to show other errors that might pop up. Instead of raising the exceptions, I included them in try-except statements, and gave the user a chance to correct their input. Figure 5 shows the code catching a ValueError and a FileNotFoundError, and just asking for new input.
 
-![Figure 5](https://github.com/oddlandd/IntroToProg-Python-Mod7/blob/master/docs/Figure%205.png "Figure 5")
+![Figure 5](Figure%204.png "Figure 5")
 ***Figure 5: Structured error handling in List of Bills program***
   
 ## Summary
